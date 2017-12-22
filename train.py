@@ -211,4 +211,4 @@ def train(num_iteration):
 
 if __name__ == '__main__':
 
-    train(num_iteration=30000)
+    train(num_iteration=30500)
