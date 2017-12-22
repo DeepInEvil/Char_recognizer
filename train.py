@@ -47,15 +47,15 @@ y_true_cls = tf.argmax(y_true, dimension=1)
 
 ##Network graph params
 filter_size_conv1 = 3 
-num_filters_conv1 = 32
+num_filters_conv1 = 63
 
 filter_size_conv2 = 3
-num_filters_conv2 = 32
+num_filters_conv2 = 64
 
 filter_size_conv3 = 3
-num_filters_conv3 = 64
+num_filters_conv3 = 128
     
-fc_layer_size = 128
+fc_layer_size = 256
 
 
 def create_weights(shape):
@@ -122,7 +122,7 @@ def create_fc_layer(input,
     # Fully connected layer takes input x and produces wx+b.Since, these are matrices, we use matmul function in Tensorflow
     layer = tf.matmul(input, weights) + biases
     #keep_prob = tf.placeholder(tf.float32)
-    layer_drop = tf.nn.dropout(layer, 0.5)
+    layer_drop = tf.nn.dropout(layer, 0.7)
     if use_relu:
         layer = tf.nn.relu(layer_drop)
 
@@ -211,4 +211,4 @@ def train(num_iteration):
 
 if __name__ == '__main__':
 
-    train(num_iteration=20000)
+    train(num_iteration=30000)
